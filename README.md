@@ -49,6 +49,10 @@ To batch convert a lot of frames run the `monodepth_convert.py` script.
 python monodepth_convert.py -m public\midasnet\FP32\midasnet.xml -i frames
 ```
 
+### OpenCV Demo
+
+If you are interested in a OpenCV implementation (in Java) feel free to have a look at [the code here](https://github.com/cansik/deep-vision-processing/blob/master/src/main/java/ch/bildspur/vision/MidasNetwork.java#L37-L89).
+
 ### About
 
 The [MiDas network](https://github.com/intel-isl/MiDaS) and the pre-trained weights are part of the [Intel ISL](https://github.com/intel-isl). This repository just adds some scripts and utilties to work with it.
