@@ -11,8 +11,8 @@ popd
 # install basic requirements
 python -m pip install -r "/opt/intel/openvino/deployment_tools/tools/model_downloader/requirements.in"
 
-# install torch & torch vision
-pip install torch torchvision torchaudio
+# install torch & torch vision (maybe not necessary!)
+# pip install torch torchvision torchaudio
 
 # install pytorch requirements
 python -m pip install -r "/opt/intel/openvino/deployment_tools/tools/model_downloader/requirements-pytorch.in"
