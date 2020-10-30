@@ -6,7 +6,7 @@ Utility to convert RGB frames into depth frames by using MiDas.
 *Office demo image by [fauxels](https://www.pexels.com/@fauxels) from Pexels*
 
 ### Installation
-It is recommended to use a seperate Python envrionment ([virtualenv](https://virtualenv.pypa.io/en/latest/)) and Python 3.6.7 (Windows 10) or Python 3.8.5 (MacOS).
+It is recommended to use a seperate Python envrionment ([virtualenv](https://virtualenv.pypa.io/en/latest/)) and Python `3.6.X` (Windows 10 & MacOS).
 
 1. Download and install the latest [OpenVINO framework](https://software.intel.com/content/www/us/en/develop/tools/openvino-toolkit.html) (`2021.1`).
 2. Run the following script to install the models, convert them and setup the environment:
