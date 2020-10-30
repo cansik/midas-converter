@@ -1,7 +1,7 @@
 @echo off
 
 REM setup vars of open vino
-CALL "C:\Program Files (x86)\IntelSWTools\openvino\bin\setupvars.bat"
+IF "%INTEL_OPENVINO_DIR%"=="" CALL "C:\Program Files (x86)\IntelSWTools\openvino\bin\setupvars.bat"
 
 REM install optimizer tools
 pushd "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\model_optimizer\install_prerequisites"

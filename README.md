@@ -16,7 +16,7 @@ It is recommended to use a seperate Python envrionment ([virtualenv](https://vir
 setup.bat
 ```
 
-### Converting
+### Demo
 
 Either use a predefined batch script to run the examples or call the demo itself.
 
@@ -32,6 +32,14 @@ There is also a live webcam-feed inference example.
 
 ```bash
 run_webcam.bat
+```
+
+#### Batch Convert
+
+To batch convert a lot of frames run the `monodepth_convert.py` script.
+
+```bash
+python monodepth_convert.py -m public\midasnet\FP32\midasnet.xml -i frames
 ```
 
 ### About
