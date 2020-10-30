@@ -17,7 +17,7 @@ pip install torch===1.7.0 torchvision===0.8.1 torchaudio===0.7.0 -f https://down
 REM install pytorch requirements
 python -m pip install -r "%INTEL_OPENVINO_DIR%\deployment_tools\tools\model_downloader\requirements-pytorch.in"
 
-pip install networkx defusedxml matplotlib opencv-python
+pip install networkx defusedxml matplotlib opencv-python cmapy
 pip install test-generator==0.1.1
 
 REM download models

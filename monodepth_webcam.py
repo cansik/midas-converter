@@ -7,6 +7,7 @@ import numpy as np
 import logging as log
 from openvino.inference_engine import IECore
 import matplotlib.pyplot as plt
+import cmapy
 
 
 def main():
@@ -23,6 +24,8 @@ def main():
     parser.add_argument("-d", "--device",
         help="Optional. Specify the target device to infer on; CPU, GPU, FPGA, HDDL or MYRIAD is acceptable. "
         "Sample will look for a suitable plugin for device specified. Default value is CPU", default="CPU", type=str)
+    parser.add_argument("-c", "--colormap",
+        help="Optional. Specify the colormap for the depth output. Default value is inferno", default="inferno", type=str)
 
     args = parser.parse_args()
 
@@ -54,6 +57,8 @@ def main():
     cv2.namedWindow("preview")
     vc = cv2.VideoCapture(args.input)
 
+    colormap = cmapy.cmap(args.colormap)
+
     # try to get the first frame
     if vc.isOpened():
         rval, frame = vc.read()
@@ -69,8 +74,6 @@ def main():
 
         # resize
         if (input_height, input_width) != (height, width):
-            log.info("Image is resized from {} to {}".format(
-                image.shape[:-1], (height, width)))
             image = cv2.resize(image, (width, height), cv2.INTER_CUBIC)
 
         # prepare input
@@ -79,11 +82,9 @@ def main():
         image_input = np.expand_dims(image, 0)
 
         # start sync inference
-        log.info("starting inference")
         res = exec_net.infer(inputs={input_blob: image_input})
 
         # processing output blob
-        log.info("processing output blob")
         disp = res[out_blob][0]
 
         # resize disp to input resolution
@@ -98,7 +99,11 @@ def main():
         else:
             disp.fill(0.5)
 
-        cv2.imshow("preview", disp)
+        disp_image = np.uint8(disp * 255.0)
+        disp_colored = cv2.applyColorMap(disp_image, colormap)
+
+        output = np.vstack((frame, disp_colored))
+        cv2.imshow("preview", output)
 
         rval, frame = vc.read()
 
