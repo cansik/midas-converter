@@ -13,7 +13,12 @@ It is recommended to use a seperate Python envrionment ([virtualenv](https://vir
 
 ```bash
 # one-script setup of the full environment (grab a coffee ☕)
+
+# windows
 setup.bat
+
+# unix
+./setup.sh
 ```
 
 ### Demo
@@ -23,6 +28,7 @@ Either use a predefined batch script to run the examples or call the demo itself
 ```bash
 # demo
 run.bat
+./run.sh
 
 # on your own image
 python monodepth_demo.py -m public\midasnet\FP32\midasnet.xml -i yourimage.jpg
@@ -32,6 +38,7 @@ There is also a live webcam-feed inference example.
 
 ```bash
 run_webcam.bat
+./run_webcam.sh
 ```
 
 #### Batch Convert
